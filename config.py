@@ -79,7 +79,7 @@ def get_config():
         'agnostic_nms': True,                       # Overlap NMS
         'iou': 0.6,                                 # Intersection over Union 
         'frame': 0,                                 # Frame number
-        'selected_classes': None                    # List of class IDs to draw (None = draw all classes)
+        'selected_classes': [0]                    # List of class IDs to draw (None = draw all classes)
     }
 
 

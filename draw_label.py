@@ -243,9 +243,9 @@ if __name__ == '__main__':
     print("Starting draw_label.py script...")
     print("=" * 60)
     
-    images_dir = 'test01/images'
-    labels_dir = 'test01/labels'
-    output_dir = 'test01/draw'
+    images_dir = 'data/raw_images'
+    labels_dir = 'data/labels'
+    output_dir = 'data/images'
     os.makedirs(output_dir, exist_ok=True)
 
     model_path = '/mnt/data/ntpshin/roadAI/RDD2022andYOLO/pre-trained/yolo_07_03_11n_allsize_def_aug_e160.pt'
@@ -328,7 +328,7 @@ if __name__ == '__main__':
                     continue
                 if image_label.shape[:2] != (1080, 1920):
                     image_label = cv2.resize(image_label, (1920, 1080), interpolation=cv2.INTER_AREA)
-                output_path = os.path.join(output_dir, f"{base_name}_gt.jpg")
+                output_path = os.path.join(output_dir, f"{base_name}.jpg")
                 image_label = draw_image_segment(image_label, model_path=None, label_path=label_path, config=config_defect)
                 cv2.imwrite(output_path, image_label)
                 print(f"  ✅ Saved ground truth: {output_path}")
